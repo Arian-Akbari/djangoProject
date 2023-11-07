@@ -1,9 +1,9 @@
 <h1>
-    my name is {{ name }}
+    input your text below here
 </h1>
-<p>
-    you are {{ age }} year old
-</p>
-<p>
-    you are from {{ nationality }}
-</p>
+<form method="post" action="counter">
+    {% csrf_token %}
+    <textarea name="text" rows="25" cols="100"></textarea>
+    <br/>
+    <input type="submit"/>
+</form>
