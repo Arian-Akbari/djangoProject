@@ -1,9 +1,8 @@
+{#{% load static %}#}
+<link rel="stylesheet" href="../static/style.css">
+{#<link rel="stylesheet" href="{% static 'style.css' %}" />#}
+{% for feature in features %}
 <h1>
-    input your text below here
+    hey , welcome to my site {{ feature.name}} , i am {{ feature.info }} nad im a very {{ feature.phone}}
 </h1>
-<form method="post" action="counter">
-    {% csrf_token %}
-    <textarea name="text" rows="25" cols="100"></textarea>
-    <br/>
-    <input type="submit"/>
-</form>
+{% endfor %}
