@@ -6,8 +6,7 @@ from .models import Feature
 
 
 def index(request):
-    features = Feature.objects.all()
-    return render(request, 'index.html', {'features': features})
+    return render(request, 'index.html')
 
 
 def counter(request):
@@ -39,3 +38,19 @@ def register(request):
             return redirect('register')
     else:
         return render(request, 'register.html')
+
+
+def login(request):
+    if request.method == 'POST':
+        username = request.POST['username']
+        password = request.POST['password']
+
+        user = auth.authenticate(username=username, password=password)
+        if user is not None:
+            auth.login(request, user)
+            return redirect('/' , user)
+        else:
+            messages.info(request, 'invalid')
+            return redirect('/register')
+    else:
+        return render(request, 'login.html')

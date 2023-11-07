@@ -1,8 +1,8 @@
 {#{% load static %}#}
 <link rel="stylesheet" href="../static/style.css">
 {#<link rel="stylesheet" href="{% static 'style.css' %}" />#}
-{% for feature in features %}
+{% if user.is_authenticated %}
 <h1>
-    hey , welcome to my site {{ feature.name}} , i am {{ feature.info }} nad im a very {{ feature.phone}}
+    hey , welcome to my site {{ user.username}}
 </h1>
-{% endfor %}
+{% endif %}
